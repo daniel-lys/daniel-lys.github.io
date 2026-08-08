@@ -154,6 +154,8 @@ see “Puzzles you choose to keep”.</p>
     <tr><td>Chosen difficulty</td><td>So the app opens on the level last played</td></tr>
     <tr><td>Chosen language</td><td>So the app opens in the language picked</td></tr>
     <tr><td>A name, typed on first launch</td><td>So “My puzzles” can be labelled with it instead of a generic title</td></tr>
+    <tr><td>Whether the daily reminder is on</td><td>So the app knows whether to schedule it</td></tr>
+    <tr><td>The run of days, the best run, and how many puzzles have been finished</td><td>So the app can show “3 days in a row”</td></tr>
   </tbody>
 </table>
 </div>
@@ -165,7 +167,25 @@ not asked again.</p>
 <p>That name is the only piece of personal information the app holds. It is stored on the device and
 nowhere else: it is <strong>never transmitted</strong>, never passed to the ad system, and never used to
 identify anyone. You can change it or clear it at any time from “My puzzles”. Uninstalling the app
-deletes all four preferences.</p>
+deletes all of it.</p>
+
+<p>The run of days is four numbers — a date, two counts and a total. It is not a history of when the
+app was used: only the most recent day is kept, so there is no record of which days were which.
+Nothing about it is sent anywhere.</p>
+
+<h2>The daily reminder</h2>
+
+<p>The app can show <strong>one notification a day</strong>, at six in the evening, and only on a day when no
+puzzle has been finished. It is <strong>off unless a grown-up turns it on</strong> in Settings, which is also
+the only place Android's notification permission is ever asked for — never at launch, and never in
+front of a child.</p>
+
+<p>The reminder is scheduled entirely on the device. Nothing is sent to any server to make it happen,
+no push service is involved, and the app has no way of knowing whether it was seen. Turning the
+switch off cancels it immediately.</p>
+
+<p>It never says a run is about to end and never counts down, because a reminder built on the fear of
+losing something is not a reminder a young child should be given.</p>
 
 <h2>Puzzles you choose to keep</h2>
 
@@ -343,10 +363,12 @@ asks for it, and absent where it would open an empty form.</p>
 <h2>What the app does <em>not</em> do</h2>
 
 <ul>
-  <li>It requests <strong>two</strong> Android permissions and no others: <strong>internet access</strong>, needed to fetch an
-    ad, and permission to <strong>see whether the phone has a connection</strong>. Not storage, not photos, not
-    camera, not microphone, not location, not contacts, not the advertising ID. You can verify this
-    on the app's Google Play listing, under “App permissions”.</li>
+  <li>It requests <strong>three</strong> Android permissions and no others: <strong>internet access</strong>, needed to fetch
+    an ad; permission to <strong>see whether the phone has a connection</strong>; and permission to
+    <strong>show notifications</strong>, asked for only if a grown-up switches the daily reminder on, and never
+    otherwise. Not storage, not photos, not camera, not microphone, not location, not contacts, not
+    the advertising ID. You can verify this on the app's Google Play listing, under
+    “App permissions”.</li>
   <li>It contains <strong>no analytics SDK</strong> and <strong>no crash-reporting SDK</strong>. The only third-party code in
     the app is the Google Mobile Ads SDK described above.</li>
   <li>It never transmits your photos, your saved puzzles, the notes a parent writes, or any name
