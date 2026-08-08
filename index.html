@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Puzzle Play</title>
+<meta name="description" content="Puzzle Play — a jigsaw puzzle app for young children, made from your own photos.">
+<style>
+  :root {
+    --bg: #ffffff;
+    --fg: #1f2328;
+    --muted: #59636e;
+    --rule: #d8dee4;
+    --accent: #0969da;
+    --panel: #f6f8fa;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #0d1117;
+      --fg: #e6edf3;
+      --muted: #9198a1;
+      --rule: #30363d;
+      --accent: #4493f8;
+      --panel: #161b22;
+    }
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    padding: 4rem 1.25rem 5rem;
+    background: var(--bg);
+    color: var(--fg);
+    font: 16px/1.65 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    -webkit-text-size-adjust: 100%;
+  }
+  main { max-width: 34rem; margin: 0 auto; }
+  h1 { font-size: 2rem; margin: 0 0 0.75rem; letter-spacing: -0.02em; }
+  .tagline { color: var(--muted); font-size: 1.05rem; margin: 0 0 2.5rem; }
+  h2 { font-size: 1.05rem; margin: 2.5rem 0 0.6rem; }
+  p { margin: 0 0 1rem; }
+  ul { margin: 0 0 1rem; padding-left: 1.4rem; }
+  li { margin-bottom: 0.35rem; }
+  a { color: var(--accent); }
+  .links {
+    background: var(--panel);
+    border: 1px solid var(--rule);
+    border-radius: 8px;
+    padding: 1.1rem 1.25rem;
+    margin: 2rem 0;
+  }
+  .links div { margin: 0.35rem 0; }
+  footer {
+    margin-top: 3.5rem;
+    padding-top: 1.25rem;
+    border-top: 1px solid var(--rule);
+    color: var(--muted);
+    font-size: 0.9rem;
+  }
+</style>
+</head>
+<body>
+<main>
+
+<h1>Puzzle Play</h1>
+<p class="tagline">A jigsaw puzzle for young children, cut from your own photos.</p>
+
+<p>Pick a photo, choose how many pieces, and it becomes a puzzle. Everything happens on the phone:
+the picture is never uploaded, and every puzzle already on the device plays without an internet
+connection.</p>
+
+<h2>What it does</h2>
+<ul>
+  <li>Puzzles from your own photos, or from the pictures that ship with the app.</li>
+  <li>Difficulty from a handful of pieces up to a full board.</li>
+  <li>A shelf of finished puzzles, kept only if you ask for them.</li>
+  <li>A corner where a grown-up can prepare puzzles in advance and leave a note at the end.</li>
+  <li>Seven languages: English, Romanian, German, Spanish, French, Italian, Portuguese.</li>
+</ul>
+
+<div class="links">
+  <div><strong>Privacy policy:</strong> <a href="/privacy/">Read it here</a></div>
+  <div><strong>Support and questions:</strong>
+    <a href="mailto:contact.daniellys@gmail.com">contact.daniellys@gmail.com</a></div>
+</div>
+
+<h2>Ads and privacy, briefly</h2>
+<p>The app is free and shows ads between rounds. It is registered with Google as directed to
+children, so those ads are not personalised and the Android advertising ID is not collected — the
+permission for it has been removed from the app. The
+<a href="/privacy/">privacy policy</a> sets out exactly what is and is not collected.</p>
+
+<footer>
+  Puzzle Play — Daniel Lys, independent developer.
+</footer>
+
+</main>
+</body>
+</html>
