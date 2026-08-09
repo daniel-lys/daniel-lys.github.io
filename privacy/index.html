@@ -91,7 +91,7 @@
 <div class="meta">
   <div><strong>App:</strong> Puzzle Play for Android — Google Play ID: com.puzzlekids.game</div>
   <div><strong>Effective:</strong> 8 August 2026</div>
-  <div><strong>Last updated:</strong> 8 August 2026</div>
+  <div><strong>Last updated:</strong> 9 August 2026</div>
   <div><strong>Data controller:</strong> Daniel Lys, independent developer</div>
   <div><strong>Contact:</strong> <a href="mailto:contact.daniellys@gmail.com">contact.daniellys@gmail.com</a></div>
 </div>
@@ -144,7 +144,7 @@ see “Puzzles you choose to keep”.</p>
 
 <h2>What is stored on the device</h2>
 
-<p>Four preferences, in the app's private storage, which no other app can read:</p>
+<p>A handful of small preferences, in the app's private storage, which no other app can read:</p>
 
 <div class="table-wrap">
 <table>
@@ -154,7 +154,7 @@ see “Puzzles you choose to keep”.</p>
     <tr><td>Chosen difficulty</td><td>So the app opens on the level last played</td></tr>
     <tr><td>Chosen language</td><td>So the app opens in the language picked</td></tr>
     <tr><td>A name, typed on first launch</td><td>So “My puzzles” can be labelled with it instead of a generic title</td></tr>
-    <tr><td>Whether the daily reminder is on</td><td>So the app knows whether to schedule it</td></tr>
+    <tr><td>Whether the daily reminder is on, and the hour it is set to</td><td>So the app knows whether to schedule it, and for when</td></tr>
     <tr><td>The run of days, the best run, and how many puzzles have been finished</td><td>So the app can show “3 days in a row”</td></tr>
   </tbody>
 </table>
@@ -175,14 +175,17 @@ Nothing about it is sent anywhere.</p>
 
 <h2>The daily reminder</h2>
 
-<p>The app can show <strong>one notification a day</strong>, at six in the evening, and only on a day when no
-puzzle has been finished. It is <strong>off unless a grown-up turns it on</strong> in Settings, which is also
-the only place Android's notification permission is ever asked for — never at launch, and never in
-front of a child.</p>
+<p>The app can show <strong>one notification a day</strong>, at an hour a grown-up picks in Settings — six in the
+evening until it is changed — and only on a day when no puzzle has been finished. It is
+<strong>off unless a grown-up turns it on</strong>, and that switch is also the only place Android's notification
+permission is ever asked for — never at launch, and never in front of a child.</p>
 
 <p>The reminder is scheduled entirely on the device. Nothing is sent to any server to make it happen,
 no push service is involved, and the app has no way of knowing whether it was seen. Turning the
-switch off cancels it immediately.</p>
+switch off cancels it immediately. So that a reminder survives the phone being restarted — a reboot
+clears every alarm the system was holding — the app also asks Android to tell it when the phone has
+started up. That is a silent permission you are never prompted for, and it is used for nothing
+else.</p>
 
 <p>It never says a run is about to end and never counts down, because a reminder built on the fear of
 losing something is not a reminder a young child should be given.</p>
@@ -213,6 +216,27 @@ Uninstalling the app removes it all as well.</p>
 
 <p>Puzzles made from the pictures that ship with the app store no image at all — those are drawn by
 the app from scratch each time.</p>
+
+<h2>The film studio</h2>
+
+<p>Three deliberate taps on the mascot, and a small sum only a grown-up will answer, lead to a corner
+of the app that makes a short video out of words and, if you like, one of your photos. It is not on
+any menu, and a child tapping around the home screen does not fall into it.</p>
+
+<p>The whole film is made <strong>on the phone</strong>, with Android's own video encoder. Nothing is uploaded,
+no service is contacted, and no copy is kept anywhere but on your device. Two buttons there can put
+a file outside the app, and each takes a deliberate tap:</p>
+
+<ul>
+  <li><strong>Save to gallery</strong> writes the finished MP4 into your device's own video library, the same
+    place a camera app would put it. It stays on the phone.</li>
+  <li><strong>Share</strong> hands that one file to whichever app you pick in Android's share sheet, one file at
+    a time, under a temporary grant that Android manages. Where it goes after that is between you
+    and the app you chose — Puzzle Play plays no part in it and is not told what you picked.</li>
+</ul>
+
+<p>Leaving the studio without doing either keeps nothing: the film exists only while you are making
+it.</p>
 
 <h2>Puzzles a grown-up prepares</h2>
 
@@ -363,10 +387,12 @@ asks for it, and absent where it would open an empty form.</p>
 <h2>What the app does <em>not</em> do</h2>
 
 <ul>
-  <li>It requests <strong>three</strong> Android permissions and no others: <strong>internet access</strong>, needed to fetch
-    an ad; permission to <strong>see whether the phone has a connection</strong>; and permission to
-    <strong>show notifications</strong>, asked for only if a grown-up switches the daily reminder on, and never
-    otherwise. Not storage, not photos, not camera, not microphone, not location, not contacts, not
+  <li>It requests <strong>four</strong> Android permissions and no others, and only one of them is ever put to you
+    as a question: <strong>internet access</strong>, needed to fetch an ad; permission to
+    <strong>see whether the phone has a connection</strong>; permission to <strong>show notifications</strong>, which is the
+    one you are asked for, and only if a grown-up switches the daily reminder on; and permission to
+    be told the phone has <strong>restarted</strong>, so that a reminder you switched on is still there after a
+    reboot. Not storage, not photos, not camera, not microphone, not location, not contacts, not
     the advertising ID. You can verify this on the app's Google Play listing, under
     “App permissions”.</li>
   <li>It contains <strong>no analytics SDK</strong> and <strong>no crash-reporting SDK</strong>. The only third-party code in
@@ -379,8 +405,12 @@ asks for it, and absent where it would open an empty form.</p>
   <li>It does not use the microphone or the camera. Sounds are generated by the app itself; there is
     no recording of any kind.</li>
   <li>It contains <strong>no purchases</strong>. Nothing in the app costs money.</li>
-  <li>It contains no social features, no chat, no user-generated content shared with anyone, and no
-    links out of the app other than this policy and wherever an ad leads if it is tapped.</li>
+  <li>It contains no social features, no chat, no accounts and no way for anyone to reach anyone
+    else through it. Nothing is published, and no content is uploaded to us or to anybody — there is
+    no server to upload it to. The one thing a grown-up can send out of the app is a film they made
+    in the studio, to an app they choose themselves; see “The film studio” above.</li>
+  <li>The only links out of the app are this policy, wherever an ad leads if it is tapped, and
+    Android's own share sheet if the studio is used.</li>
 </ul>
 
 <h2 id="summary">Summary — what is and is not collected</h2>
@@ -476,7 +506,7 @@ change will be described in this section.</p>
 <p>Daniel Lys, independent developer. Replies are usually within a few days.</p>
 
 <footer>
-  Puzzle Play — Daniel Lys. Last updated 8 August 2026.
+  Puzzle Play — Daniel Lys. Last updated 9 August 2026.
 </footer>
 
 </main>
